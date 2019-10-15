@@ -1,0 +1,208 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+    color: white;
+}
+
+p {
+    margin:0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    margin: auto;
+    max-width: 960px;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    font-size: 115%;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    line-height: 2vh;
+    font-size: 75%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttonBack {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 5%;
+    margin-left:4%;
+}
+#buttonOptions {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 5%;
+    margin-right:4%;
+}
+
+main {
+    display: flex;
+    height: 100%;
+}
+
+#mainLeft {
+    display: flex;
+    flex-direction: column;
+    width:60%;
+}
+
+#mainRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:40%;
+}
+
+#coverArt {
+    display: flex;
+    justify-content: center;
+    width:100%;
+}
+
+#image {
+    margin: 5% 5% 0 5%;
+    width: 30vh;
+}
+
+#information {
+    display: flex;
+    font-size: 125%;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    margin-top: 5%;
+}
+
+#progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6%;
+    width: 100%;
+}
+
+#progressBar {
+    display: flex;
+    align-items: center;
+    width: 75%;
+    height: 50%;
+    border-radius: 50px;
+    margin: 0 5%;
+}
+
+#bar {
+    background-color: white;
+    width: 0%;
+    height: 100%;
+    border-radius: 50px;
+}
+
+#controls {
+    display: flex;
+    justify-content:space-evenly;
+    margin: 10% 0 5% 0;
+    width: 100%;
+}
+
+.controlButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+}
+
+#buttonPrevious i {
+    font-size: 2vw;
+}
+#buttonNext i {
+    font-size: 2vw;
+}
+#buttonPlay i {
+    font-size: 3.5vw;
+}
+#buttonShuffle i {
+    font-size: 1vw;
+}
+#buttonRepeat i {
+    font-size: 1vw;
+}
+
+#timeElapsed {
+    font-size: calc(6px + 0.6vw);
+    text-align: right;
+    width: 20%;
+}
+#totalTime {
+    font-size: calc(6px + 0.6vw);
+    text-align: left;
+    width: 20%;
+}
+
+.songItem {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+}
+
+.thumbImage {
+    height: 80%;
+    margin-left: 5%;
+}
+
+.songThumb {
+    margin-left: 5%;
+    width: 100%;
+}
+
+.songThumb p {
+    font-size: calc(6px + 0.6vw);
+}
+
+.currentSong p {
+    font-size: calc(8px + 0.6vw);
+}
+
+.buttonThumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height:100%;
+}
+
+#plus {
+    width: 10%;
+}
+
+#heart {
+    width: 10%;
+}
+
+colors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(5px+0.45vw);
+    width: 20%;
+    height: 5%;
+    margin: 2% 0 4% 0;
+}

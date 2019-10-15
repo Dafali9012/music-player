@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spoofy</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/58119e6540.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="music-player.js"></script>
+</head>
+
+<body>
+    <header id="menu">
+        <section class="button" id="buttonBack">
+            <i class="fas fa-chevron-left"></i>
+        </section>
+        <section class="title"><p><strong>Spoofy</strong></p><p>Playlist - Progressive</p></section>
+        <section class="button" id="buttonOptions">
+            <i class="fas fa-ellipsis-v"></i>
+        </section>
+    </header>
+    <main>
+        <section class="main" id="mainLeft">
+            <article class="songItem" link="https://dl.dropboxusercontent.com/s/zfk3dkguci3keot/river.mp3?dl=0">
+                <img src="https://previews.dropbox.com/p/thumb/AAnbA12I7PSKlyIe1P-OZKPIG1eA9wqLyz5o_3M9rCr_Hhro6bEq0yY-hfNFLCyXi5fIKkhj0Nl73EMC05XcLIzWtXpo074h5WPZkQ1oUvf7Lq4XKRm1_JVHNuk5uDsIK9q5p9xZoHMhVjrFzCjCHLsUohz2zrpdE1rs80qL53a9K0-cA-5XRMuQZa0e7HiroGUhi6_jd9NI8Iq-y4eyedi-H74R2TGJsnMARwFnDGQMwz3u0IRq6Lg-tzwZZjgRNElPhzesia-ok6WvB7-fSdntImagwsGue9JyvY7iLJcmYKM04X9CrLZL-Kz4Y2LLYr1sNrabp7x_vJ-Jl4KEbEd0/p.png?fv_content=true&size_mode=5" class="thumbImage">
+                <section class="songThumb"><p><strong>Soen</strong></p><p>River</p></section>
+                <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
+            </article>
+            <article class="songItem" link="https://dl.dropbox.com/s/h2noj8cnpc2m09n/visions.mp3?dl=0">
+                <img src="https://previews.dropbox.com/p/thumb/AAltC4KUDrMLBWrjEFFvy_jD6TFHkZ9eX6vvK6Jr3wrsTLkfGg3jUOngTJ2MdjPAp5CLBOCoKNNsJyl4d-azOc3h8pa-sewq_tjzhjC8o4y3t-DGna2h03ehNjRdD9PBv3laGQNv0BU2Idcw3EhXmPLuyzVQ17T8Y8KNnY_ZqXS5rFwiLFyNEUDm4vBfOY9ESK8sba1TvjMJ_L-KKk3fJ_P1Li_hjdtsohghVhADmiYewGqGCSqF6OcVWoNJPNpkRzCc7K84bSp0Sa4J1YZ4_GTATwthjhdmIvGlRxmjBmaWf9NseeBMl4divh52Zuz31ek_M3rfSFsFtXDRVC1fJkR_/p.png?fv_content=true&size_mode=5" class="thumbImage">
+                <section class="songThumb"><p><strong>Haken</strong></p><p>Visions</p></section>
+                <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
+            </article>
+            <article class="songItem" link="https://dl.dropbox.com/s/3j30868wdpa9q07/tragedy.mp3?dl=0">
+                <img src="https://previews.dropbox.com/p/thumb/AAkVTkrpfoTz2wl0LZDABTVSaCVBF1Vm9Qg3gleGDYqvzffiazxMM678nOPp-jL207y17ju2FJK3kxg_HOtakVlaujsAuQmh5IM3gpdgdZc6R-i6QTpWv3n4_6J2bfV6Qx5Vp3oTTlQzci_oHeTdya1zHQ8Oyd9BHyZaxVg0PEQ26EwBdyZAL9ykFq36OrMlPS5O8IP7uKypBGv9GXZj0pouY09T_fAaG3xHc_yX83GMDTZDvF58-XmYNZkqwZZXiUsbY2wNmMB0mSyB6cpD1iIq6gRJ0f6ytok-0ekJWJNdw_l__XDBaIi_JEcGS5emvaP9jKpO2dq66yBrRxyQmnH3/p.png?fv_content=true&size_mode=5" class="thumbImage">
+                <section class="songThumb"><p><strong>Dream Theater</strong></p><p>Scene Three: II. Fatal Tragedy</p></section>
+                <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
+            </article>
+            <article class="songItem" link="https://dl.dropbox.com/s/lt7ymm863kyowg0/head.mp3?dl=0">
+                <img src="https://previews.dropbox.com/p/thumb/AAnbqi-sQqlDj3xjGEYPadDCRABf9sg1H-KMUjeCVCuhRmH7RysRo8sm5RBwaTMmo-S5ZziiLtf_QAzaBGCxsQ_q3TBelsKPh4FDa5Z-LFMpvKmRWi0whNSghmqIRYtxVxZvLgzJ82LMtmDKL0wtW3I3McGrg6yY-17rr16zBoK6RNEiLhbPf20pAAdf4cp-_PWDHqwjhaQuaojDD30H_uP0Jkxah3Z7E3M54xukUeB99pLI7VlCRJXI4vbeGm0aOz9pc1LuValsCXV6p_PeB56C9jA1P7WgNcorF2wroAuSmgfB0OuneBDVndrDYv3GbZ4zw5UEonFdb6DBhABBgUah/p.png?size=2048x1536&size_mode=3" class="thumbImage">
+                <section class="songThumb"><p><strong>Electric Light Orchestra</strong></p><p>Can't Get It out of My Head</p></section>
+                <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
+            </article>
+            <article class="songItem" link="https://dl.dropbox.com/s/zeav7cd6c4lrd5r/dignity.mp3?dl=0">
+                <img src="https://previews.dropbox.com/p/thumb/AAlr-Sdsw0cZdyjhiZBaKOZ_iZtENbY3UQuaxBfXzULwZKbDolwbnwvn9tE12WnpOYs4MvIqoGtOP-h58h-ycY_mP0IOOIFLXgWBB80SeCNUtpV8czbcMpBBoJJDyJ_nb9-Dsttdt48Jet9gErBcXo127fLk2VlRRhfQ7xJ7Wxu8-ygW06utAFcWcLq_RCZAzmDGPTB7V_9WBMWZbQoGGgBvnqCNxhsIxMT2K2ZSfHVevdq6tm-9SCVxnf6FjqT5gGDwOpDy9UlaVFyHnIopGs2dkn6UFdkf8tki6C1qgqT3fIHD1zw41bhJW-9UnF2hkk8WMfSowgeS8ty9Gaii2EBb/p.png?fv_content=true&size_mode=5" class="thumbImage">
+                <section class="songThumb"><p><strong>Opeth</strong></p><p>Dignity</p></section>
+                <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
+            </article>
+            <article class="songItem" link="https://dl.dropbox.com/s/iqnpx8dy6rbza0l/fly.mp3?dl=0">
+                <img src="https://previews.dropbox.com/p/thumb/AAli0kXxbafnCWCLGhfbztZmcTXkOEx_DCRZJo3-kJi7DPJgVErpNVDysptZYfwEeorQQdM0hQMTF9A-bnD_945TIYc_YjkFKrWjleGkY3BEX-EjiqIO8kQlQTR7JxVvvVCymQ2osibfhfSBy_KYPfX4ZYl0PUHQDoNsRUUXTtU0eIRjL3uyjgnXynyyAQ1iNwMlh0kDi9kXvgec_HckrJSfu83lLV7GNMN5kCxo1VvyN0640GsvHBCQvAb9cTTtfl9LXSLh7x2ruzJ_XFSwU8czUvHh48LRmEsTXvdU-h9qNt-bCk7Z0Q7GBQWUYSkaHUiKoees0_fMHIbFxWpSyMZ3/p.png?size=2048x1536&size_mode=3" class="thumbImage">
+                <section class="songThumb"><p><strong>Spock's Beard</strong></p><p>A Better Way to Fly</p></section>
+                <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
+            </article>
+            <article class="songItem" link="https://dl.dropbox.com/s/xun5kigzlem6ack/burn.mp3?dl=0">
+                <img src="https://previews.dropbox.com/p/thumb/AAnyKA5d057jg11KdutrznJmI46l27qw9AFkgTSVOEOfE7VvACFTYNM_JmI5228QFgSJGWHr0ZuYIXtLU5dGZyWsnBdYblfseLcBnUfBUFjVXW1NQa3Z7RkxLPg237L-yDZ3Ls-DR7RyQ8QoRmoYtCGdxanRKeTSxsUPC-nkGiAtTi8v_wZQGINq3du8VKqzJeLdQTmPaT_3rnAW5b-zOgs6iOwy60wp-vOd8oESMu54qOxBTQYC8Y6cMhBJM4zQZVsY-i-iKQkJcjxIO9kqtuTvS7wRDQ_bLM3Jm50L5-eKTUTGDDlSmChGA06AHEM90vCgWEV0ECw_njJptB-XV5Ql/p.png?fv_content=true&size_mode=5" class="thumbImage">
+                <section class="songThumb"><p><strong>Radiohead</strong></p><p>Burn the Witch</p></section>
+                <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
+            </article>
+            <article class="songItem" link="https://dl.dropbox.com/s/zuuu1viqyjtans7/nihil.mp3?dl=0">
+                <img src="https://previews.dropbox.com/p/thumb/AAlkAqfoKIywAyLk9QTQmeODXnmS2DH1Tw4vHvk1mfsWBEa5r4ZKpiiP96fT91cTCsvgUgl6d8G2nAWO8lwQoeTTz8NaYMIvO_XD0ByZ1U-xr1n-XLBHjAFTx0C-_u2mRdzEEW2kw9DQ_WR2Pvf8MV67ESNUKFYy8bTYNKofRwuOOwSwe9HIoVIpKk6iwsnmaZw-Qh0Y-BkC5GclBqNDqj2XJSdaCNiic8gTZmiatmIRcpawsNCST5nqTXpNvQ-aEZx_w4KJl3IKbKraqb4V0t5EAXrXJEqX1c1V1EHH66qZ9TvUbHVjuBfrPwRw5BRxcdTDqxnAf6_HvbL-oyZbWVBd/p.png?fv_content=true&size_mode=5" class="thumbImage">
+                <section class="songThumb"><p><strong>Pain of Salvation</strong></p><p>Nihil Morari</p></section>
+                <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
+            </article>
+            <article class="songItem" link="https://dl.dropbox.com/s/mfela8khaginfrg/fear.mp3?dl=0">
+                <img src="https://previews.dropbox.com/p/thumb/AAkUQoY08wYwPxmKKRGp-Vv2By_QjwfwyO178aptXQAf4msSu5-uOhawaXPsaRvruenkQM0_HWWRh7Z8AKp-dVUruBUzDPtHZM2vykpAW22Pl7rFcD9uStMDD3R8MWNv2AeITQiZzxQk188wCUMZ80P9B8WHn3LGosopnyV7fQJym2otS5k-eLnmZ1ioUkYD4MVJT8cWf2qYsKR0-bc511Obo59Jc1biCHUmxSc3whLXy00BGkI6htJOQnZqDJZDRHEdXCacdjw9CWyvPp4L76jiD6DCO2LyzJ4KuLvQqC305dI-IgpueTUglmHB3S7TQ4pMqAUcIzYP9vIGPK47Uk3P/p.png?fv_content=true&size_mode=5" class="thumbImage">
+                <section class="songThumb"><p><strong>Porcupine Tree</strong></p><p>Fear of a Blank Planet</p></section>
+                <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
+            </article>
+        </section>
+        <section class="main" id="mainRight">
+            <section class="rightItem" id="coverArt">
+                <img src="images/venenum.png" id="image">
+            </section>
+            <info class="rightItem" id="information">
+                <section class="button" id="plus"><i class="fas fa-plus-circle"></i></section>
+                <section class="currentSong"><p><strong>Opeth</strong></p><p>Dignity</p></section>
+                <section class="button" id="heart"><i class="fas fa-heart"></i></section>
+            </info>
+            <section class="rightItem" id="progress">
+                <p id="timeElapsed">00:00</p>
+                <section id="progressBar"><section id="bar"></section></section>
+                <p id="totalTime">00:00</p>
+            </section>
+            <controls class="rightItem" id="controls">
+                <section class="controlButton" id="buttonRepeat"><i class="fas fa-redo"></i></section>
+                <section class="controlButton" id="buttonPrevious"><i class="fas fa-step-backward"></i></section>
+                <section class="controlButton" id="buttonPlay"><i class="fas fa-play-circle"></i></section>
+                <section class="controlButton" id="buttonNext"><i class="fas fa-step-forward"></i></i></section>
+                <section class="controlButton" id="buttonShuffle"><i class="fas fa-random"></i></section>
+            </controls>
+            <colors id="buttonColors">
+                <i class="fas fa-paint-brush"></i>
+            </colors>
+        </section>
+    </main>
+</body>
+</html>
