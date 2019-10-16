@@ -10,6 +10,8 @@ let audioStream = new Audio()
 
 let songNumber = 1
 
+let repeat = false;
+
 let myVar
 
 function start() {
@@ -32,6 +34,7 @@ function start() {
     $(".songItem").on("click", selectSong)
     $("#buttonPrevious").on("click", previousSong)
     $("#buttonNext").on("click", nextSong)
+    $("#buttonRepeat").on("click", repeatSong)
 }
 
 $(start)
@@ -104,8 +107,14 @@ function updateProgress() {
     let timeTotalMinutes = Math.trunc(audioStream.duration / 60)
     let timeTotalSeconds = Math.trunc(audioStream.duration % 60)
 
-    if(audioStream.currentTime == audioStream.duration) {
-        nextSong();
+    if (audioStream.currentTime == audioStream.duration) {
+        if (!repeat) {
+            nextSong();
+        } else {
+            audioStream.currentTime = 0
+            audioStream.play()
+        }
+
     }
 
     if (isNaN(audioStream.duration)) {
@@ -213,4 +222,18 @@ function nextSong() {
     updateInformation()
     myVar = setInterval(updateProgress, 500)
     audioStream.play()
+}
+
+function repeatSong() {
+    if (!repeat) {
+        repeat = true
+        $("#buttonRepeat").children("i").css({
+            color: "rgb(65,65,65)"
+        })
+    } else {
+        repeat = false
+        $("#buttonRepeat").children("i").css({
+            color: "white"
+        })
+    }
 }
