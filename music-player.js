@@ -35,6 +35,7 @@ function start() {
     $("#buttonPrevious").on("click", previousSong)
     $("#buttonNext").on("click", nextSong)
     $("#buttonRepeat").on("click", repeatSong)
+    $("#buttonShuffle").on("click", shuffleSong)
 }
 
 $(start)
@@ -236,4 +237,8 @@ function repeatSong() {
             color: "white"
         })
     }
+}
+
+function shuffleSong() {
+    confirm("EJ IMPLEMENTERAD")
 }
