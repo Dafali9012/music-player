@@ -13,8 +13,6 @@ let songNumber = 1
 let repeat = false;
 let shuffle = false;
 
-let myVar
-
 function start() {
 
     audioStream.volume = 0.65;
@@ -22,6 +20,8 @@ function start() {
 
     updateInformation()
     updateColors()
+
+    audioStream.addEventListener("timeupdate", updateProgress)
 
     $("#buttonColors").on("click", rotateColors)
 
@@ -37,6 +37,10 @@ function start() {
     $("#buttonNext").on("click", nextSong)
     $("#buttonRepeat").on("click", repeatSong)
     $("#buttonShuffle").on("click", shuffleSong)
+
+    $("#buttonOptions").on("click", openOptions)
+    $("#plus").on("click", openOptions)
+    $("#heart").on("click", openOptions)
 }
 
 $(start)
@@ -133,10 +137,9 @@ function updateProgress() {
                 }
             }
             let selectedSong = possibleSongsVector[Math.round(Math.random()*(possibleSongsVector.length-1))]
-            console.log(selectedSong) //kan bli undefined (?) löst (?) kan möjligtvis ha varit att tidigare kod försökte hämta värde ur en låda som inte existerade i vektorn
+            console.log(selectedSong)
             updateSelected(selectedSong,true)
             updateInformation()
-            myVar = setInterval(updateProgress, 500)
             audioStream.play()
         } else {
             nextSong();
@@ -149,6 +152,8 @@ function updateProgress() {
     } else {
         $("#progress>#timeElapsed").text(String(timeElapsedMinutes).padStart(2,"0")+":"+String(timeElapsedSeconds).padStart(2,"0"))
         $("#progress>#totalTime").text(String(timeTotalMinutes).padStart(2,"0")+":"+String(timeTotalSeconds).padStart(2,"0"))
+
+        $("#bar").css({ width: ((audioStream.currentTime/audioStream.duration)*100) + "%" })
     }
 }
 
@@ -169,12 +174,10 @@ function playSong() {
     if ($(this).children("i").attr("class") == "fas fa-play-circle") {
         $(this).children("i").removeClass("fas fa-play-circle")
         $(this).children("i").addClass("fas fa-pause-circle")
-        myVar = setInterval(updateProgress, 500)
         audioStream.play()
     } else if ($(this).children("i").attr("class") == "fas fa-pause-circle") {
         $(this).children("i").removeClass("fas fa-pause-circle")
         $(this).children("i").addClass("fas fa-play-circle")
-        clearInterval(myVar)
         audioStream.pause()
     }
 }
@@ -188,7 +191,6 @@ function selectSong() {
     }
     updateSelected($(this).index() + 1, true)
     updateInformation()
-    myVar = setInterval(updateProgress, 500)
     audioStream.play()
 }
 
@@ -201,7 +203,6 @@ function previousSong() {
         updateInformation()
 
         if ($("#buttonPlay>i").attr("class") == "fas fa-pause-circle") {
-            myVar = setInterval(updateProgress, 500)
             audioStream.play()
         }
 
@@ -219,7 +220,6 @@ function nextSong() {
     }
     updateSelected(1)
     updateInformation()
-    myVar = setInterval(updateProgress, 500)
     audioStream.play()
 }
 
@@ -249,4 +249,8 @@ function shuffleSong() {
             color: "white"
         })
     }
+}
+
+function openOptions() {
+    confirm("EJ IMPLEMENTERAD")
 }
