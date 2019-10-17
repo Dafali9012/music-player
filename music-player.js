@@ -11,6 +11,7 @@ let audioStream = new Audio()
 let songNumber = 1
 
 let repeat = false;
+let shuffle = false;
 
 let myVar
 
@@ -75,6 +76,16 @@ function updateColors() {
     $("#mainLeft").css({ backgroundColor: "rgb(" + colorTwo[0] + "," + colorTwo[1] + "," + colorTwo[2] + ")" })
     $("#progressBar").css({ backgroundColor: "rgb(" + colorThree[0] + "," + colorThree[1] + "," + colorThree[2] + ")" })
     $(".songItem:nth-child(" + songNumber + ")").css({ backgroundColor: "rgb(" + colorOne[0] + "," + colorOne[1] + "," + colorOne[2] + ")" })
+    if (repeat) {
+        $("#buttonRepeat").children("i").css({
+            color: "rgb(" + colorThree[0] + "," + colorThree[1] + "," + colorThree[2] + ")"
+        })
+    }
+    if (shuffle) {
+        $("#buttonShuffle").children("i").css({
+            color: "rgb(" + colorThree[0] + "," + colorThree[1] + "," + colorThree[2] + ")"
+        })
+    }
 }
 
 function updateInformation() {
@@ -109,48 +120,35 @@ function updateProgress() {
     let timeTotalSeconds = Math.trunc(audioStream.duration % 60)
 
     if (audioStream.currentTime == audioStream.duration) {
-        if (!repeat) {
-            nextSong();
-        } else {
+        if (repeat) {
             audioStream.currentTime = 0
             audioStream.play()
+        } else if (shuffle) {
+            let possibleSongsVector = []
+            let songNumberIndex = 0
+            for (i = 0; i < $("#mainLeft").children(".songItem").length; i++) {
+                if (i + 1 != songNumber) {
+                    possibleSongsVector[songNumberIndex] = i + 1
+                    songNumberIndex++
+                }
+            }
+            let selectedSong = possibleSongsVector[Math.round(Math.random()*(possibleSongsVector.length-1))]
+            console.log(selectedSong) //kan bli undefined (?) löst (?) kan möjligtvis ha varit att tidigare kod försökte hämta värde ur en låda som inte existerade i vektorn
+            updateSelected(selectedSong,true)
+            updateInformation()
+            myVar = setInterval(updateProgress, 500)
+            audioStream.play()
+        } else {
+            nextSong();
         }
-
     }
 
     if (isNaN(audioStream.duration)) {
         $("#progress>#timeElapsed").text("00:00")
         $("#progress>#totalTime").text("00:00")
     } else {
-        $("#bar").css({ width: (audioStream.currentTime / audioStream.duration) * 100 + "%" })
-
-        if (timeElapsedMinutes < 10) {
-            if (timeElapsedSeconds < 10) {
-                $("#progress>#timeElapsed").text("0" + timeElapsedMinutes + ":0" + timeElapsedSeconds)
-            } else {
-                $("#progress>#timeElapsed").text("0" + timeElapsedMinutes + ":" + timeElapsedSeconds)
-            }
-        } else {
-            if (timeElapsedSeconds < 10) {
-                $("#progress>#timeElapsed").text(timeElapsedMinutes + ":0" + timeElapsedSeconds)
-            } else {
-                $("#progress>#timeElapsed").text(timeElapsedMinutes + ":" + timeElapsedSeconds)
-            }
-        }
-
-        if (timeTotalMinutes < 10) {
-            if (timeTotalSeconds < 10) {
-                $("#progress>#totalTime").text("0" + timeTotalMinutes + ":0" + timeTotalSeconds)
-            } else {
-                $("#progress>#totalTime").text("0" + timeTotalMinutes + ":" + timeTotalSeconds)
-            }
-        } else {
-            if (timeTotalSeconds < 10) {
-                $("#progress>#totalTime").text(timeTotalMinutes + ":0" + timeTotalSeconds)
-            } else {
-                $("#progress>#totalTime").text(timeTotalMinutes + ":" + timeTotalSeconds)
-            }
-        }
+        $("#progress>#timeElapsed").text(String(timeElapsedMinutes).padStart(2,"0")+":"+String(timeElapsedSeconds).padStart(2,"0"))
+        $("#progress>#totalTime").text(String(timeTotalMinutes).padStart(2,"0")+":"+String(timeTotalSeconds).padStart(2,"0"))
     }
 }
 
@@ -229,7 +227,7 @@ function repeatSong() {
     if (!repeat) {
         repeat = true
         $("#buttonRepeat").children("i").css({
-            color: "rgb(65,65,65)"
+            color: "rgb(" + colorThree[0] + "," + colorThree[1] + "," + colorThree[2] + ")"
         })
     } else {
         repeat = false
@@ -240,5 +238,15 @@ function repeatSong() {
 }
 
 function shuffleSong() {
-    confirm("EJ IMPLEMENTERAD")
+    if (!shuffle) {
+        shuffle = true
+        $("#buttonShuffle").children("i").css({
+            color: "rgb(" + colorThree[0] + "," + colorThree[1] + "," + colorThree[2] + ")"
+        })
+    } else {
+        shuffle = false
+        $("#buttonShuffle").children("i").css({
+            color: "white"
+        })
+    }
 }
