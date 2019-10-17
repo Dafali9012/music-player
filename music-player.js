@@ -43,7 +43,7 @@ function start() {
     $("#buttonCloseOptions").on("click", closeOptions)
 
     $("#plus").on("click", notImplemented)
-    $("#heart").on("click", notImplemented)
+    $("#heart").on("click", showPrompt)
 }
 
 $(start)
@@ -255,7 +255,7 @@ function shuffleSong() {
 }
 
 function openOptions() {
-    $("modal").css({
+    $("#optionsMenu").css({
         "display": "flex",
         "width": $("body").css("width"),
         "height": $("body").css("height"),
@@ -263,10 +263,10 @@ function openOptions() {
         "right": "auto"
     })
 
-    $("border").css({
+    $("#optionsMenu>content>border").css({
         "background-color": "rgb("+colorThree[0]+","+colorThree[1]+","+colorThree[2]+")"
     })
-    $("modal>content").css({
+    $("#optionsMenu>content").css({
         "background-color": "rgb("+colorOne[0]+","+colorOne[1]+","+colorOne[2]+")"
     })
 }
@@ -274,6 +274,22 @@ function openOptions() {
 function closeOptions() {
     $("modal").css({
         "display": "none"
+    })
+}
+
+function showPrompt() {
+    $("#continuePrompt").css({
+        "display": "flex",
+        "width": $("body").css("width"),
+        "height": $("body").css("height"),
+        "left": "auto",
+        "right": "auto"
+    })
+    $("#continuePrompt>content>border").css({
+        "background-color": "rgb("+colorThree[0]+","+colorThree[1]+","+colorThree[2]+")"
+    })
+    $("#continuePrompt>content").css({
+        "background-color": "rgb("+colorOne[0]+","+colorOne[1]+","+colorOne[2]+")"
     })
 }
 

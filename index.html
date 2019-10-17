@@ -132,16 +132,34 @@
             </colors>
         </section>
     </main>
-    <modal>
+    <modal id="optionsMenu">
         <content>
             <border>
                 <p>Options</p>
                 <section class="button" id="buttonCloseOptions"><i class="fas fa-times-circle"></i></section>
             </border>
-            <border>
+            <innerContent>
 
+            </innerContent>
+            <border>
+            </border>
+        </content>
+    </modal>
+    <modal id="continuePrompt">
+        <content>
+            <border>
+            </border>
+            <innerContent>
+                <p>This song has been playing for x minutes, keep playing?</p>
+                <options>
+                    <promptOption class="button" id="promptNo"><p>No</p></promptOption>
+                    <promptOption class="button" id="promptYes"><p>Yes</p></promptOption>
+                </options>
+            </innerContent>
+            <border>
             </border>
         </content>
     </modal>
 </body>
+
 </html>
