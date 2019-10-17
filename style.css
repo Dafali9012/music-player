@@ -206,3 +206,42 @@ colors {
     height: 5%;
     margin: 2% 0 4% 0;
 }
+
+modal {
+    z-index: 1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    /*border: 2px solid white;*/
+}
+
+modal>content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    height: 80%;
+    /*border-radius: 35px;*/
+}
+
+#buttonCloseOptions {
+    width: 6%;
+    height: 100%;
+}
+
+border {
+    display: flex;
+    justify-content: space-between;
+    height: 5%;
+    width: 100%;
+}
+
+border>p {
+    text-align: center;
+    align-self: center;
+    margin-left: 5%;
+}

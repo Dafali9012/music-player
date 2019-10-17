@@ -29,6 +29,7 @@ function start() {
     $(".controlButton").css({ cursor: "pointer" })
     $(".songItem").css({ cursor: "pointer" })
     $(".button").css({ cursor: "pointer" })
+    $("modal>content>i").css({cursor: "pointer"})
 
     $("#buttonBack").on("click", truncateView)
     $("#buttonPlay").on("click", playSong)
@@ -39,8 +40,10 @@ function start() {
     $("#buttonShuffle").on("click", shuffleSong)
 
     $("#buttonOptions").on("click", openOptions)
-    $("#plus").on("click", openOptions)
-    $("#heart").on("click", openOptions)
+    $("#buttonCloseOptions").on("click", closeOptions)
+
+    $("#plus").on("click", notImplemented)
+    $("#heart").on("click", notImplemented)
 }
 
 $(start)
@@ -136,9 +139,9 @@ function updateProgress() {
                     songNumberIndex++
                 }
             }
-            let selectedSong = possibleSongsVector[Math.round(Math.random()*(possibleSongsVector.length-1))]
+            let selectedSong = possibleSongsVector[Math.round(Math.random() * (possibleSongsVector.length - 1))]
             console.log(selectedSong)
-            updateSelected(selectedSong,true)
+            updateSelected(selectedSong, true)
             updateInformation()
             audioStream.play()
         } else {
@@ -150,10 +153,10 @@ function updateProgress() {
         $("#progress>#timeElapsed").text("00:00")
         $("#progress>#totalTime").text("00:00")
     } else {
-        $("#progress>#timeElapsed").text(String(timeElapsedMinutes).padStart(2,"0")+":"+String(timeElapsedSeconds).padStart(2,"0"))
-        $("#progress>#totalTime").text(String(timeTotalMinutes).padStart(2,"0")+":"+String(timeTotalSeconds).padStart(2,"0"))
+        $("#progress>#timeElapsed").text(String(timeElapsedMinutes).padStart(2, "0") + ":" + String(timeElapsedSeconds).padStart(2, "0"))
+        $("#progress>#totalTime").text(String(timeTotalMinutes).padStart(2, "0") + ":" + String(timeTotalSeconds).padStart(2, "0"))
 
-        $("#bar").css({ width: ((audioStream.currentTime/audioStream.duration)*100) + "%" })
+        $("#bar").css({ width: ((audioStream.currentTime / audioStream.duration) * 100) + "%" })
     }
 }
 
@@ -252,5 +255,28 @@ function shuffleSong() {
 }
 
 function openOptions() {
-    confirm("EJ IMPLEMENTERAD")
+    $("modal").css({
+        "display": "flex",
+        "width": $("body").css("width"),
+        "height": $("body").css("height"),
+        "left": "auto",
+        "right": "auto"
+    })
+
+    $("border").css({
+        "background-color": "rgb("+colorThree[0]+","+colorThree[1]+","+colorThree[2]+")"
+    })
+    $("modal>content").css({
+        "background-color": "rgb("+colorOne[0]+","+colorOne[1]+","+colorOne[2]+")"
+    })
+}
+
+function closeOptions() {
+    $("modal").css({
+        "display": "none"
+    })
+}
+
+function notImplemented() {
+    confirm("UNDER CONSTRUCTION")
 }
