@@ -100,6 +100,12 @@ function updateColors() {
             color: "rgb(" + colorThree[0] + "," + colorThree[1] + "," + colorThree[2] + ")"
         })
     }
+    $("#optionsMenu>content>border").css({
+        "background-color": "rgb(" + colorThree[0] + "," + colorThree[1] + "," + colorThree[2] + ")"
+    })
+    $("#optionsMenu>content").css({
+        "background-color": "rgb(" + colorOne[0] + "," + colorOne[1] + "," + colorOne[2] + ")"
+    })
 }
 
 function updateInformation() {
