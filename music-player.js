@@ -10,13 +10,17 @@ let audioStream = new Audio()
 
 let songNumber = 1
 
-let repeat = false;
-let shuffle = false;
+let repeat = false
+let shuffle = false
+
+let previousCurrentTime = 0
+let currentSongPlayedFor = 0
+let promptAt = 60*30
 
 function start() {
 
-    audioStream.volume = 0.65;
-    audioStream.src = $(".songItem:nth-child(" + songNumber + ")").attr("link");
+    audioStream.volume = 0.65
+    audioStream.src = $(".songItem:nth-child(" + songNumber + ")").attr("link")
 
     updateInformation()
     updateColors()
@@ -29,7 +33,7 @@ function start() {
     $(".controlButton").css({ cursor: "pointer" })
     $(".songItem").css({ cursor: "pointer" })
     $(".button").css({ cursor: "pointer" })
-    $("modal>content>i").css({cursor: "pointer"})
+    $("modal>content>i").css({ cursor: "pointer" })
 
     $("#buttonBack").on("click", truncateView)
     $("#buttonPlay").on("click", playSong)
@@ -43,7 +47,10 @@ function start() {
     $("#buttonCloseOptions").on("click", closeOptions)
 
     $("#plus").on("click", notImplemented)
-    $("#heart").on("click", showPrompt)
+    $("#heart").on("click", notImplemented)
+
+    $("#promptYes").on("click", closePrompt)
+    $("#promptNo").on("click", closePromptStopPlayback)
 }
 
 $(start)
@@ -97,8 +104,8 @@ function updateColors() {
 
 function updateInformation() {
     $("#coverArt>img").attr("src", $(".songItem:nth-child(" + songNumber + ")").children("img").attr("src"))
-    $(".currentSong>p>strong").text($(".songItem:nth-child(" + songNumber + ")").children(".songThumb").children("p:nth-child(1)").text());
-    $(".currentSong>p:nth-child(2)").text($(".songItem:nth-child(" + songNumber + ")").children(".songThumb").children("p:nth-child(2)").text());
+    $(".currentSong>p>strong").text($(".songItem:nth-child(" + songNumber + ")").children(".songThumb").children("p:nth-child(1)").text())
+    $(".currentSong>p:nth-child(2)").text($(".songItem:nth-child(" + songNumber + ")").children(".songThumb").children("p:nth-child(2)").text())
 }
 
 function updateSelected(increment, assignInstead = false) {
@@ -111,10 +118,11 @@ function updateSelected(increment, assignInstead = false) {
     if (songNumber < 1) {
         songNumber = $("#mainLeft").children(".songItem").length
     } else if (songNumber > $("#mainLeft").children(".songItem").length) {
-        songNumber = 1;
+        songNumber = 1
     }
     $(".songItem:nth-child(" + songNumber + ")").css({ backgroundColor: "rgb(" + colorOne[0] + "," + colorOne[1] + "," + colorOne[2] + ")" })
 
+    resetCurrentSongPlayedFor()
     audioStream.src = $(".songItem:nth-child(" + songNumber + ")").attr("link")
     audioStream.currentTime = 0
 }
@@ -128,6 +136,7 @@ function updateProgress() {
 
     if (audioStream.currentTime == audioStream.duration) {
         if (repeat) {
+            previousCurrentTime = 0
             audioStream.currentTime = 0
             audioStream.play()
         } else if (shuffle) {
@@ -145,7 +154,7 @@ function updateProgress() {
             updateInformation()
             audioStream.play()
         } else {
-            nextSong();
+            nextSong()
         }
     }
 
@@ -157,6 +166,13 @@ function updateProgress() {
         $("#progress>#totalTime").text(String(timeTotalMinutes).padStart(2, "0") + ":" + String(timeTotalSeconds).padStart(2, "0"))
 
         $("#bar").css({ width: ((audioStream.currentTime / audioStream.duration) * 100) + "%" })
+    }
+
+    currentSongPlayedFor += audioStream.currentTime-previousCurrentTime
+    previousCurrentTime = audioStream.currentTime
+    console.log(currentSongPlayedFor)
+    if(currentSongPlayedFor > promptAt && $("#continuePrompt").css("display")=="none") {
+        showPrompt()
     }
 }
 
@@ -181,6 +197,7 @@ function playSong() {
     } else if ($(this).children("i").attr("class") == "fas fa-pause-circle") {
         $(this).children("i").removeClass("fas fa-pause-circle")
         $(this).children("i").addClass("fas fa-play-circle")
+        currentSongPlayedFor = 0
         audioStream.pause()
     }
 }
@@ -264,15 +281,15 @@ function openOptions() {
     })
 
     $("#optionsMenu>content>border").css({
-        "background-color": "rgb("+colorThree[0]+","+colorThree[1]+","+colorThree[2]+")"
+        "background-color": "rgb(" + colorThree[0] + "," + colorThree[1] + "," + colorThree[2] + ")"
     })
     $("#optionsMenu>content").css({
-        "background-color": "rgb("+colorOne[0]+","+colorOne[1]+","+colorOne[2]+")"
+        "background-color": "rgb(" + colorOne[0] + "," + colorOne[1] + "," + colorOne[2] + ")"
     })
 }
 
 function closeOptions() {
-    $("modal").css({
+    $("#optionsMenu").css({
         "display": "none"
     })
 }
@@ -286,11 +303,33 @@ function showPrompt() {
         "right": "auto"
     })
     $("#continuePrompt>content>border").css({
-        "background-color": "rgb("+colorThree[0]+","+colorThree[1]+","+colorThree[2]+")"
+        "background-color": "rgb(" + colorThree[0] + "," + colorThree[1] + "," + colorThree[2] + ")"
     })
     $("#continuePrompt>content").css({
-        "background-color": "rgb("+colorOne[0]+","+colorOne[1]+","+colorOne[2]+")"
+        "background-color": "rgb(" + colorOne[0] + "," + colorOne[1] + "," + colorOne[2] + ")"
     })
+}
+
+function closePrompt() {
+    $("#continuePrompt").css({
+        "display": "none"
+    })
+    currentSongPlayedFor = 0
+}
+
+function closePromptStopPlayback() {
+    closePrompt()
+    if ($("#buttonPlay").children("i").attr("class") == "fas fa-pause-circle") {
+        $("#buttonPlay").children("i").removeClass("fas fa-pause-circle")
+        $("#buttonPlay").children("i").addClass("fas fa-play-circle")
+    }
+    currentSongPlayedFor = 0
+    audioStream.pause()
+}
+
+function resetCurrentSongPlayedFor() {
+    currentSongPlayedFor = 0
+    previousCurrentTime = 0
 }
 
 function notImplemented() {
