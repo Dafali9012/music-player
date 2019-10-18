@@ -149,7 +149,7 @@ function updateProgress() {
                 }
             }
             let selectedSong = possibleSongsVector[Math.round(Math.random() * (possibleSongsVector.length - 1))]
-            console.log(selectedSong)
+            //console.log(selectedSong)
             updateSelected(selectedSong, true)
             updateInformation()
             audioStream.play()
@@ -170,7 +170,7 @@ function updateProgress() {
 
     currentSongPlayedFor += audioStream.currentTime-previousCurrentTime
     previousCurrentTime = audioStream.currentTime
-    console.log(currentSongPlayedFor)
+    //console.log(currentSongPlayedFor)
     if(currentSongPlayedFor > promptAt && $("#continuePrompt").css("display")=="none") {
         showPrompt()
     }

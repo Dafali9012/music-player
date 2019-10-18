@@ -22,7 +22,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-content: center;
-    font-size: 115%;
+    font-size: calc(6px + 0.6vw);
 }
 
 .title {
@@ -30,7 +30,7 @@ header {
     flex-direction: column;
     text-align: center;
     line-height: 2vh;
-    font-size: 75%;
+    font-size: calc(5px + 0.6vw);
 }
 
 .button {
