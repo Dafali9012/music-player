@@ -15,6 +15,6 @@
 8. ✓ Tidslinjen ska kontinuerligt uppdateras med korrekt tid när musiken spelar.
 9. ✓ När man klickar på “repetera-knappen” ska samma låt upprepas (om och om igen).
 10. ✓ När en låt spelat i x minuter (sätt 1 minut för att kunna testa) ska en modal (eller confirm) visas “Vill du fortsätta lyssna?”. Om man svarar Ja ska modalen stängas. Om man svarar Nej ska modalen stängas och musiken stoppas. Utseendet på modalen får du basera på utseendet på musikspelaren, alternativt använder du “confirm (länk).
-11. ✗ I hamburgermenyn ska jag kunna lägga till en ny låt till spelaren.
+11. ✓ I hamburgermenyn ska jag kunna lägga till en ny låt till spelaren.
 12. ✗ I hamburgermenyn ska man kunna skapa nya playlists och välja aktuell playlist.
 13. ✗ Om jag klickar på plustecknet eller hjärtat, och låten jag lyssnar på inte finns i aktuell playlist, så ska den läggas till i aktuell playlist.

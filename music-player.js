@@ -15,7 +15,7 @@ let shuffle = false
 
 let previousCurrentTime = 0
 let currentSongPlayedFor = 0
-let promptAt = 60*30
+let promptAt = 60*30 //prompt at x seconds (30 minutes)
 
 function start() {
 
@@ -34,10 +34,11 @@ function start() {
     $(".songItem").css({ cursor: "pointer" })
     $(".button").css({ cursor: "pointer" })
     $("modal>content>i").css({ cursor: "pointer" })
+    $("#buttonAddSong").css({cursor: "pointer"})
 
     $("#buttonBack").on("click", truncateView)
     $("#buttonPlay").on("click", playSong)
-    $(".songItem").on("click", selectSong)
+    $("body").on("click", ".songItem", selectSong)
     $("#buttonPrevious").on("click", previousSong)
     $("#buttonNext").on("click", nextSong)
     $("#buttonRepeat").on("click", repeatSong)
@@ -51,6 +52,9 @@ function start() {
 
     $("#promptYes").on("click", closePrompt)
     $("#promptNo").on("click", closePromptStopPlayback)
+    $("#buttonAddSong").on("click", openAddSongPrompt)
+    $("#promptCancel").on("click", closeAddSongPrompt)
+    $("#promptAdd").on("click", completeAdd)
 }
 
 $(start)
@@ -340,4 +344,52 @@ function resetCurrentSongPlayedFor() {
 
 function notImplemented() {
     confirm("UNDER CONSTRUCTION")
+}
+
+function openAddSongPrompt() {
+    $("#addSongPrompt").css({
+        "display": "flex",
+        "width": $("body").css("width"),
+        "height": $("body").css("height"),
+        "left": "auto",
+        "right": "auto"
+    })
+
+    $("#addSongPrompt>content>border").css({
+        "background-color": "rgb(" + colorThree[0] + "," + colorThree[1] + "," + colorThree[2] + ")"
+    })
+    $("#addSongPrompt>content").css({
+        "background-color": "rgb(" + colorOne[0] + "," + colorOne[1] + "," + colorOne[2] + ")"
+    })
+}
+
+function closeAddSongPrompt() {
+    $("#addSongPrompt").css({
+        "display": "none"
+    })
+}
+
+function completeAdd() {
+    closeAddSongPrompt()
+    $("#mainLeft").append(document.createElement("article"))
+    $("#mainLeft>article:last-child").css({
+        "height": "10vh",
+    })
+    $("#mainLeft>article:last-child").attr("class", "songItem")
+    $("#mainLeft>article:last-child").attr("link", $("#inputSongLink").val())
+    $("#mainLeft>article:last-child").append(document.createElement("img"))
+    $("#mainLeft>article:last-child>img").attr("src", $("#inputCoverLink").val())
+    $("#mainLeft>article:last-child>img").attr("class", "thumbImage")
+    $("#mainLeft>article:last-child").append(document.createElement("section"))
+    $("#mainLeft>article:last-child>section").attr("class", "songThumb")
+    $("#mainLeft>article:last-child>section").append(document.createElement("p"))
+    $("#mainLeft>article:last-child>section>p").append(document.createElement("strong"))
+    $("#mainLeft>article:last-child>section>p>strong").text($("#inputArtistName").val())
+    $("#mainLeft>article:last-child>section").append(document.createElement("p"))
+    $("#mainLeft>article:last-child>section>p:last-child").text($("#inputSongName").val())
+    $("#mainLeft>article:last-child").append(document.createElement("section"))
+    $("#mainLeft>article:last-child>section:last-child").attr("class", "buttonThumb")
+    $("#mainLeft>article:last-child>section:last-child").append(document.createElement("i"))
+    $("#mainLeft>article:last-child>section:last-child>i").attr("class", "fas fa-play-circle")
+    
 }

@@ -76,6 +76,7 @@
                 </section>
                 <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
             </article>
+            <!--
             <article class="songItem" link="https://dl.dropbox.com/s/xun5kigzlem6ack/burn.mp3?dl=0">
                 <img src="https://dl.dropbox.com/s/678odmq2x7ptqcl/moon.png?dl=0" class="thumbImage">
                 <section class="songThumb">
@@ -100,6 +101,7 @@
                 </section>
                 <section class="buttonThumb"><i class="fas fa-play-circle"></i></section>
             </article>
+        -->
         </section>
         <section class="main" id="mainRight">
             <section class="rightItem" id="coverArt">
@@ -129,6 +131,7 @@
             </controls>
         </section>
     </main>
+
     <modal id="optionsMenu">
         <content>
             <border>
@@ -136,12 +139,18 @@
                 <section class="button" id="buttonCloseOptions"><i class="fas fa-times-circle"></i></section>
             </border>
             <innerContent>
-                <colors id="buttonColors"><i class="fas fa-paint-brush"></i><p>Change Color Scheme</p></colors>
+                <article id="buttonAddSong"><i class="fas fa-plus-circle"></i>
+                    <p>Add New Song</p>
+                </article>
+                <article id="buttonColors"><i class="fas fa-paint-brush"></i>
+                    <p>Change Color Scheme</p>
+                </article>
             </innerContent>
             <border>
             </border>
         </content>
     </modal>
+
     <modal id="continuePrompt">
         <content>
             <border>
@@ -149,8 +158,43 @@
             <innerContent>
                 <p>This song has been playing for 30 minutes, keep playing?</p>
                 <options>
-                    <promptOption class="button" id="promptNo"><p>No</p></promptOption>
-                    <promptOption class="button" id="promptYes"><p>Yes</p></promptOption>
+                    <promptOption class="button" id="promptNo">
+                        <p>No</p>
+                    </promptOption>
+                    <promptOption class="button" id="promptYes">
+                        <p>Yes</p>
+                    </promptOption>
+                </options>
+            </innerContent>
+            <border>
+            </border>
+        </content>
+    </modal>
+
+    <modal id="addSongPrompt">
+        <content>
+            <border>
+            </border>
+            <innerContent>
+                <article class="input" id="nameInput">
+                    <p>Song Name</p><input type="text" id="inputSongName">
+                </article>
+                <article class="input" id="artistInput">
+                    <p>Artist Name</p><input type="text" id="inputArtistName">
+                </article>
+                <article class="input" id="songInput">
+                    <p>Song Link</p><input type="text" id="inputSongLink">
+                </article>
+                <article class="input" id="coverInput">
+                    <p>Cover Link</p><input type="text" id="inputCoverLink">
+                </article>
+                <options>
+                    <promptOption class="button" id="promptAdd">
+                        <p>Add Song</p>
+                    </promptOption>
+                    <promptOption class="button" id="promptCancel">
+                        <p>Cancel</p>
+                    </promptOption>
                 </options>
             </innerContent>
             <border>
