@@ -235,7 +235,8 @@ main {
     align-items: center;
     width: 35%;
     height: 5%;
-    margin: 5% 0% 0% 5%;
+    margin: 2% 0% 0% 5%;
+    /*border: 2px solid white;*/
 }
 
 #buttonAddSong>i{
@@ -244,6 +245,38 @@ main {
 
 #buttonAddSong>p{
     margin-left: 5%;
+}
+
+#removeOption {
+    display: flex;
+    /*border: 2px solid white;*/
+    width: 24%;
+    height: 5%;
+    margin: 2% 0% 2% 5%;
+}
+
+#buttonRemoveSong {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#buttonRemoveSong>i{
+    font-size: calc(6px + 0.6vw);
+}
+
+#buttonRemoveSong>p{
+    margin-left: 5%;
+}
+
+#songNumberInput {
+    color: black;
+    height: 100%;
+    width: 18%;
+    text-align: center;
 }
 
 modal {
@@ -381,4 +414,11 @@ promptOption>p {
     text-align: center;
     font-size: calc(6px + 0.6vw);
     user-select: none;
+}
+
+#topSection {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width:100%;
 }

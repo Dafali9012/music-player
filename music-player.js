@@ -55,6 +55,7 @@ function start() {
     $("#buttonAddSong").on("click", openAddSongPrompt)
     $("#promptCancel").on("click", closeAddSongPrompt)
     $("#promptAdd").on("click", completeAdd)
+    $("#buttonRemoveSong").on("click", removeSong)
 }
 
 $(start)
@@ -392,4 +393,8 @@ function completeAdd() {
     $("#mainLeft>article:last-child>section:last-child").append(document.createElement("i"))
     $("#mainLeft>article:last-child>section:last-child>i").attr("class", "fas fa-play-circle")
     
+}
+
+function removeSong() {
+    $("#mainLeft>.songItem:nth-child("+$("#songNumberInput").val()+")").remove()
 }
